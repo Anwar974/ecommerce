@@ -9,6 +9,6 @@ router.get('/', controller.getAll);
 router.get('/active', controller.getActive);
 router.get('/:id', controller.getDetails);
 router.patch('/:id',fileUpload(fileType.image).single('image'), controller.update);
-router.get('/:id', controller.destroy);
+router.delete('/:id', controller.destroy);
 
 export default router;
