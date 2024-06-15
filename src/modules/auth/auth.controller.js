@@ -29,6 +29,10 @@ export const login = async(req, res)=>{
 
     }
 
+    if (!user.confirmEmail){
+        return res.status(400).json({message:"plz confirm your email"});
+    }
+
     const match = await bcrypt.compare(password, user.password);
     if(user.status=="NotActive"){
         return res.status(400).json({message: "your account is blocked"});
