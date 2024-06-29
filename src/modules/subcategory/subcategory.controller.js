@@ -1,6 +1,6 @@
 import slugify from "slugify";
 import cloudinary from "../../ults/cloudinary.js";
-import categoryModel from "../../../db/model/category.model.js";
+import categoryModel from "../../../db/model/order.model.js";
 import subcategoryModel from './../../../db/model/subcategory.model.js';
 
 export const create = async(req,res) => {
