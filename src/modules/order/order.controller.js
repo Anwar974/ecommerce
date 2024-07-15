@@ -5,7 +5,6 @@ import createInvoice from "../../ults/pdf.js";
 import productModel from './../../../db/model/product.model.js';
 import userModel from './../../../db/model/user.model.js';
 import Stripe from "stripe";
-import pdfkit from "pdfkit";
 
 
 const stripe=new Stripe('sk_test_51PcXQBRt8HjPHaHb4HbH31wIZ0xEC5MCD6POGYh6OKYQ1FjMzbKNRslAGHqU73yNsQrPJNID3YCelTLMncp2zsKP003xI3wGhA');
