@@ -6,6 +6,10 @@ export const roles = {
     User:'User'
 }
 
+
+
+
+
 export const auth = (accessRole = [])=>{
     return async (req,res,next)=>{
         
