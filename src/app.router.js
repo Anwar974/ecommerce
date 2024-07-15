@@ -26,12 +26,15 @@ const initApp = (app,express) => {
     app.use('/cart', cartRouter)
     app.use('/coupon', couponRouter)
     app.use('/order', orderRouter)
-
-
-
     app.use('*', (req,res) =>{
         return res.status(404).json({massage: "page not found"});
-    })
+    });
+
+  app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    res.status(statusCode).json({ message: err.message });
+  });
 }
+
 
 export default initApp;

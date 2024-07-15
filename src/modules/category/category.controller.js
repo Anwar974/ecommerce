@@ -1,10 +1,10 @@
 import slugify from "slugify";
-import categoryModel from "../../../db/model/order.model.js";
+import categoryModel from "../../../db/model/category.model.js";
 import cloudinary from "../../ults/cloudinary.js";
 
 
 export const create = async(req,res) => {
-
+    try {
     req.body.name = req.body.name.toLowerCase();
 
     if(await categoryModel.findOne({name:req.body.name})){
@@ -20,6 +20,11 @@ req.body.slug = slugify(req.body.name);
 
     const category = await categoryModel.create(req.body)
     return res.json({message:category});
+
+} catch (error) {
+    console.error("Error creating category:", error);
+    return res.status(500).json({ message: "Internal server error" });
+}
 }
 
 export const getAll = async(req,res) =>{
@@ -43,6 +48,9 @@ export const getActive = async(req,res) =>{
     return res.status(200).json({message:"success",categories});
 }
 
+export const getName=async(req,res,next)=>{
+    return res.status(200).json(req.params.name)
+ }
 
 export const getDetails = async(req,res) =>{
     const category = await categoryModel.findById(req.params.id);
@@ -51,6 +59,7 @@ export const getDetails = async(req,res) =>{
 
 export const update = async(req,res) =>{
 
+    try {
     const category = await categoryModel.findById(req.params.id);
 
     if(!category){
@@ -77,7 +86,9 @@ export const update = async(req,res) =>{
 
     await category.save();
     return res.json({message:"success", category});
-    
+} catch (err) {
+    return res.status(500).json({ message: "Internal server error", error: err.message });
+}
 }
 
 export const destroy = async(req,res) =>{

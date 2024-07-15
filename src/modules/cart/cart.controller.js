@@ -7,6 +7,7 @@ export const get = async (req, res) => {
 
 }
 export const create = async (req, res) => {
+    try {
     const { productId } = req.body;
     const cart = await cartModel.findOne({ userId: req.user._id });
 
@@ -31,6 +32,11 @@ export const create = async (req, res) => {
 
 
     return res.json({ message: "success", cart });
+
+} catch (error) {
+    console.error("Error:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+}
 
 }
 export const remove = async (req, res) => {
