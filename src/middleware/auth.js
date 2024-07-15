@@ -1,6 +1,6 @@
 import jwt  from 'jsonwebtoken';
 import userModel from '../../db/model/user.model.js';
-import { AppError } from '../ults/appError.js';
+import { AppError } from '../ults/AppError.js';
 export const roles = {
     Admin:'Admin',
     User:'User'
