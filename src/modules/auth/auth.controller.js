@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { sendEmail } from "../../ults/email.js";
 import { customAlphabet } from "nanoid";
-import xlsx from "xlsx"
+// import xlsx from "xlsx"
 
 
 export const register = async (req, res)=>{
@@ -20,13 +20,13 @@ export const register = async (req, res)=>{
 
 }
 
-export const addUserExcel=async(req, res, next) =>{
-    const workbook = xlsx.readFile(req.file.path)
-    const worksheet = workbook.Sheets[workbook.SheetNames[0]]
-    const users=xlsx.utils.sheet_to_json(worksheet)
-    await userModel.insertMany(users)
-    return res.status(200).json({message:"success"})
-}
+// export const addUserExcel=async(req, res, next) =>{
+//     const workbook = xlsx.readFile(req.file.path)
+//     const worksheet = workbook.Sheets[workbook.SheetNames[0]]
+//     const users=xlsx.utils.sheet_to_json(worksheet)
+//     await userModel.insertMany(users)
+//     return res.status(200).json({message:"success"})
+// }
 
 export const confirmEmail = async (req, res)=>{
 
