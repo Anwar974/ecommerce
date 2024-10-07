@@ -5,7 +5,7 @@ import { checkEmail } from '../../middleware/checkEmail.js';
 import { asyncHandler } from '../../ults/catchError.js';
 import { validation } from '../../middleware/validation.js';
 import * as schema from './auth.validation.js';
-import fileUpload, { fileType } from '../../ults/multer.js';
+// import fileUpload, { fileType } from '../../ults/multer.js';
 
 const router = Router();
 router.post('/register',validation(schema.registerSchema),checkEmail,asyncHandler(controller.register) );
