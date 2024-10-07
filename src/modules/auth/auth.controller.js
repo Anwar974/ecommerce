@@ -4,9 +4,10 @@ import jwt from 'jsonwebtoken';
 import { sendEmail } from "../../ults/email.js";
 import { customAlphabet } from "nanoid";
 import xlsx from "xlsx"
+
+
 export const register = async (req, res)=>{
 
-    
     const {userName,email,password} = req.body;
   
    const hashedPassword= bcrypt.hashSync(password,parseInt(process.env.SALTROUND))
@@ -16,7 +17,6 @@ export const register = async (req, res)=>{
    
     await sendEmail(email,`welcome`,userName,token)
    return res.status(201).json({message:"success",user:createUser})
-
 
 }
 

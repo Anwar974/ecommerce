@@ -14,6 +14,7 @@ export const create = async(req,res) => {
    
 
     req.body.name = req.body.name.toLowerCase();
+    
     if(await categoryModel.findOne({name:req.body.name})){
         return res.status(409).json({message:"category already exists"});
     }

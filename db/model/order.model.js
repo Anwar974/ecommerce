@@ -6,13 +6,13 @@ const orderSchema = new Schema({
         ref:'User',
         required:true,
         unique:true,
-        
     },
     products:[{
-        productName:{
-            type:String,
-        },
-        productId:{
+        
+    productName:{
+        type:String,
+    },
+    productId:{
         type:Types.ObjectId,
         ref:'Product',
         required:true,
@@ -52,7 +52,6 @@ const orderSchema = new Schema({
     couponId:{
         type:Types.ObjectId,
         ref:'Coupon',
-
     },
     status:{
         type:String,

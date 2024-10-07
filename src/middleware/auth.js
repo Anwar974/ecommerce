@@ -6,10 +6,6 @@ export const roles = {
     User:'User'
 }
 
-
-
-
-
 export const auth = (accessRole = [])=>{
     return async (req,res,next)=>{
         
@@ -30,9 +26,7 @@ export const auth = (accessRole = [])=>{
             return next(new AppError(`user Not Found`,409))
 
         } 
-        // return res.json(user);
-        //user.role = صلاحية المستخدم الحالي 
-
+        
         if (!accessRole.includes(user.role)){
             return next(new AppError(`not auth user`,403))
         }

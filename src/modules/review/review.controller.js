@@ -28,12 +28,11 @@ export const create = async(req,res) => {
 
     if(checkReview){
         return res.status(409).json({message:"you already review "})
-
     }
 
     if(req.file){
         const{secure_url,public_id}=await cloudinary.uploader.upload(req.file.path,
-            {folder:`${process.env.APPNAME}`}
+            {folder:`${process.env.APPNAME}/${productId}/reviews`}
         )
         req.body.image={secure_url,public_id}
     }

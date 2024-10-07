@@ -55,17 +55,15 @@ export const remove = async (req, res) => {
 }
 
 export const clearCart = async (req, res) => {
-    const cart = await cartModel.findOneAndUpdate({
+    const cart = await cartModel.findOneAndUpdate(
+    {
         userId: req.user._id
     }, {
         products: [],
     }, {
         new: true,
     }
-
-
-    )
-
+)
     return res.json({ Message: "success", cart });
 
 }

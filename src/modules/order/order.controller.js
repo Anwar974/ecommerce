@@ -7,8 +7,8 @@ import userModel from './../../../db/model/user.model.js';
 import Stripe from "stripe";
 
 
-const stripe=new Stripe('sk_test_51PcXQBRt8HjPHaHb4HbH31wIZ0xEC5MCD6POGYh6OKYQ1FjMzbKNRslAGHqU73yNsQrPJNID3YCelTLMncp2zsKP003xI3wGhA');
-export const create = async(req,res) => {
+const stripe = new Stripe('sk_test_51PcXQBRt8HjPHaHb4HbH31wIZ0xEC5MCD6POGYh6OKYQ1FjMzbKNRslAGHqU73yNsQrPJNID3YCelTLMncp2zsKP003xI3wGhA');
+ export const create = async(req,res) => {
     try {
 
     const { couponName } = req.body;
