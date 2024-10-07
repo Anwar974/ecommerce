@@ -1,7 +1,7 @@
 import cartModel from "../../../db/model/cart.model.js";
 import couponModel from "../../../db/model/coupon.model.js";
 import orderModel from "../../../db/model/order.model.js";
-import createInvoice from "../../ults/pdf.js";
+// import createInvoice from "../../ults/pdf.js";
 import productModel from './../../../db/model/product.model.js';
 import userModel from './../../../db/model/user.model.js';
 import Stripe from "stripe";
@@ -103,19 +103,19 @@ const stripe = new Stripe('sk_test_51PcXQBRt8HjPHaHb4HbH31wIZ0xEC5MCD6POGYh6OKYQ
 
     if (order) {
 
-        const invoice = {
-            shipping: {
-              name: user.userName,
-              address: order.address,
-              phone:order.phoneNumber
+        // const invoice = {
+        //     shipping: {
+        //       name: user.userName,
+        //       address: order.address,
+        //       phone:order.phoneNumber
               
-            },
-            items:order.products,
-            subtotal: order.fnalPrice,
-            invoice_nr: order._id
-          };
+        //     },
+        //     items:order.products,
+        //     subtotal: order.fnalPrice,
+        //     invoice_nr: order._id
+        //   };
           
-          createInvoice(invoice, "invoice.pdf");
+        //   createInvoice(invoice, "invoice.pdf");
 
         for (const product of req.body.products) {
             await productModel.findOneAndUpdate(
